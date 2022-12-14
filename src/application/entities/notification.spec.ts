@@ -9,5 +9,7 @@ describe('Notification content', () => {
             recipientId: 'adofaflkhnalsjdfnlakndlknasgçPÇBPÇK',
         }
         );
+
+        expect(notification).toBeTruthy();
     },);
 },)
