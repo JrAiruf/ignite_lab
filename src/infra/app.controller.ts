@@ -1,4 +1,4 @@
-import { Controller, Delete, Get, Post } from '@nestjs/common';
+import { Controller, Get, Post } from '@nestjs/common';
 import { PrismaService } from './prisma.service';
 import { randomUUID } from 'node:crypto';
 import { Body } from '@nestjs/common/decorators';
@@ -16,7 +16,6 @@ export class AppController {
   @Post()
   async create(@Body() body: CreateNotificationBody) {
     const { content, category, recipientId } = body;
-console.log(body.recipientId);
     await this.prisma.notification.create({ 
       data: {
         id: randomUUID(),
@@ -25,10 +24,5 @@ console.log(body.recipientId);
         recipientId,
       }
     });
-  }
-
-  @Delete()
-  async remove() {
-
   }
 }
